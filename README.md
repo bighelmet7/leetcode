@@ -4,6 +4,7 @@ Wiki for all my leetcode solutions
 
 # TODO
 - [ ] Add golden files for larger test cases
+- [x] Add code coverage
 
 # Requirements
 - Go version 1.17.5
@@ -16,4 +17,13 @@ make tests
 ```bash
 # one specific test
 make test TEST_REGEXP=TestMyAtoi
+```
+
+# Code coverage
+```bash
+make coverage
+```
+Cleaners
+```bash
+make clean
 ```
