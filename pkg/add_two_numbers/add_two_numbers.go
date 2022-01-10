@@ -10,21 +10,18 @@ type ListNode struct {
 func addTwoNumbers(l1 *ListNode, l2 *ListNode) *ListNode {
 	tail := new(ListNode)
 	iter := tail
-	// this will keep l1 and l2 holding their current references intact
-	auxL1, auxL2 := *l1, *l2
-	pointerL1, pointerL2 := &auxL1, &auxL2
 	var (
 		currentVal, carry int
 	)
-	for pointerL1 != nil || pointerL2 != nil {
+	for l1 != nil || l2 != nil {
 		var (
 			valueL1, valueL2 int
 		)
-		if pointerL1 != nil {
-			valueL1 = pointerL1.Val
+		if l1 != nil {
+			valueL1 = l1.Val
 		}
-		if pointerL2 != nil {
-			valueL2 = pointerL2.Val
+		if l2 != nil {
+			valueL2 = l2.Val
 		}
 
 		currentVal = valueL1 + valueL2 + carry
@@ -37,14 +34,14 @@ func addTwoNumbers(l1 *ListNode, l2 *ListNode) *ListNode {
 
 		iter.Val = currentVal
 		// reset values
-		if pointerL1 != nil {
-			pointerL1 = pointerL1.Next
+		if l1 != nil {
+			l1 = l1.Next
 		}
-		if pointerL2 != nil {
-			pointerL2 = pointerL2.Next
+		if l2 != nil {
+			l2 = l2.Next
 		}
 		// create a new node only when is necessary
-		if pointerL1 != nil || pointerL2 != nil {
+		if l1 != nil || l2 != nil {
 			iter.Next = new(ListNode)
 			iter = iter.Next
 		}

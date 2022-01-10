@@ -45,7 +45,12 @@ func TestAddTwoNumbersTwoArrays(t *testing.T) {
 	}
 }
 
-func TestAddTwoNumbersTwoArraysPassedValuesNotModified(t *testing.T) {
+// NOTE: following the Uber guide style, this is the only exception to underscore
+// TestFunctionName_CaseWeAreTesting()
+func TestAddTwoNumbers_TwoArraysPassedValuesNotModified(t *testing.T) {
+	// This test is redundant in Go everything is passed by copy, even if
+	// you pass a pointer, you are actually passing a copy of that memory
+	// address
 	A := &ListNode{1, nil}
 	B := &ListNode{2, nil}
 	expectedPointerA := A
